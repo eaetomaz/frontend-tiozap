@@ -14,9 +14,11 @@ export default function Historico() {
     <div>
       <h1>Histórico</h1>
       <ul>
-        {historico.map((item, i) => (
-          <li key={i}>{item.mensagem}</li>
-        ))}
+         {historico.map((item, i) => {            
+            return (
+              <li key={i}>{item.id} | {new Date(item.datahoraenvio).toLocaleString("pt-BR")} | {item.mensagemenviada} | {item.destinatario}</li>
+            );
+          })}
       </ul>
     </div>
   );
