@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { apiFetch } from "../services/api";
+import '../styles/Configuracoes.css';
 
 export default function Configuracoes() {
    const [formData, setFormData] = useState({
@@ -72,9 +73,7 @@ export default function Configuracoes() {
               ativar: e.target.checked
             }))}
           />
-        </label>
-        <br />
-
+        </label>        
         <label>
           Dias da semana:
           <select
@@ -88,9 +87,8 @@ export default function Configuracoes() {
                 <option>Terça e quinta</option>
             </select>
         </label>
-        <br />
 
-        <label>
+        <label className="horario">
         Horário inicial:
         <input
             type="time"
@@ -100,7 +98,7 @@ export default function Configuracoes() {
         />
         </label>
 
-        <label>
+        <label className="horario">
         Horário final:
         <input
             type="time"

@@ -1,7 +1,7 @@
 const API_URL = 'http://localhost:3001';
 
 export async function apiFetch(endpoint, options = {}) {
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6Ikd1aWxoZXJtZSIsImlhdCI6MTc1NDg0MjE3MywiZXhwIjoxNzU0ODQ1NzczfQ.IMc_M3HPMnkU-w_wk4TROGC_8EtQ4-Yh4ikqmTdYecs';
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6Ikd1aWxoZXJtZSIsImlhdCI6MTc1NDg1MzU0NCwiZXhwIjoxNzU0ODU3MTQ0fQ.qhVTatM5HU4qarlraXUekyRNTJ-EphgMKxw_Kt_InaU';
 
   const headers = {
     'Content-Type': 'application/json',

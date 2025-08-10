@@ -1,0 +1,95 @@
+
+body {
+    background: linear-gradient(to right, #111111, #1c1c1c);
+}
+
+div {
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  color: white;
+  font-size: 14px;
+}
+
+input[type="time"],
+select {
+  margin-top: 5px;
+  padding: 8px 10px;
+  font-size: 14px;  
+  border: none;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  outline-color: #007bff; 
+  transition: border-color 0.3s ease;    
+  color: #ccc;  
+}
+
+input[type="time"]:focus,
+select:focus {
+  border-color: #0056b3;
+  color: gray;
+}
+
+label input[type="checkbox"] {
+  margin-left: 10px;
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;  
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+label:nth-last-child(-n+2) {
+  display: inline-block;
+  width: 48%;
+}
+
+label:nth-last-child(-n+2) input {
+  width: 100%;
+}
+
+label.horario {
+  display: inline-block;
+  width: 48%;
+}
+
+label.horario input {
+  width: 100%;
+  box-sizing: border-box;
+}
