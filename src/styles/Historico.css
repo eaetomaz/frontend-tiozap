@@ -1,0 +1,11 @@
+table {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 13px;
+    color: white;    
+    border-radius: 5px;    
+}
+
+table td {
+    border-radius: 3px;
+    padding: 5px;
+}
