@@ -1,13 +1,10 @@
 const API_URL = 'http://localhost:3001';
 
 export async function apiFetch(endpoint, options = {}) {
-  const token = await getValidToken();
-
-  console.log(token);
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6Ikd1aWxoZXJtZSIsImlhdCI6MTc1NTIxMDUzMX0.QtJ9OVPN_Af6GNnOgwamxI4NQ5TAVk8Mpyrq1MpiCIg';  
 
   const headers = {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json',
+    'Content-Type': 'application/json',    
     'Authorization': `Bearer ${token}`   
   };
 
@@ -27,44 +24,4 @@ export async function apiFetch(endpoint, options = {}) {
   }
 
   return response.json();  
-}
-
-function isTokenValid(token) {
-  try {
-    const[, payloadBase64] = token.split('.');
-    const payload = JSON.parse(atob(payloadBase64));
-    const now = Math.floor(Date.now() /1000);
-    return payload.exp && payload.exp > now;
-  } catch {
-    return false;
-  }
-}
-
-async function fetchNewToken() {
-  const response = await fetch('http://localhost:3001/auth', {
-    method: 'GET'
-  });
-
-  if(!response.ok)
-    throw new Error(`Erro ao obter novo token: ${Response.status}`);
-
-  const data = await response.json();
-
-  document.cookie = `authToken=${data.token}; path=/; Secure; SameSite=Strict`;
-  return data.token;
-}
-
-async function getValidToken() {
-  const token = getCookie('authToken');
-
-  if(token && isTokenValid(token)) {
-    return token;
-  }    
-
-  return await fetchNewToken();
-}
-
-function getCookie(name) {
-  const match = document.cookie.match(new RegExp(`(^| )${name}=([^;]+)`));
-  return match ? match[2] : null;
 }
