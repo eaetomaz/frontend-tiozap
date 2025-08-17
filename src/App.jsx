@@ -2,15 +2,20 @@ import { BrowserRouter as Router, Routes, Route, Navigate, Link } from "react-ro
 import Login from "./pages/Login";
 import Historico from "./pages/Historico";
 import Configuracoes from "./pages/Configuracoes";
+import "./styles/Navbar.css";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 // import ProtectedRoute from "./components/ProtectedRoute"; // desativado por enquanto
 
 export default function App() {
   return (
-    <Router>
-      {/* Menu simples */}
-      <nav style={{ display: "flex", gap: "10px", padding: "10px", background: "#f1f1f1" }}>
-        <Link to="/historico">Histórico</Link>
-        <Link to="/configuracoes">Configurações</Link>
+    <Router>      
+      <nav className="navbar">
+        <Link to="/historico" className="navbar-link">
+          <i className="fa fa-history"/> Histórico
+        </Link>  
+        <Link to="/configuracoes" className="navbar-link">
+          <i className="fa fa-cog"/> Configurações
+        </Link>              
       </nav>
 
       <Routes>
