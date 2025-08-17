@@ -1,9 +1,4 @@
-
-body {
-    background: linear-gradient(to right, #111111, #1c1c1c);
-}
-
-div {
+.div-configuracoes {
   max-width: 400px;
   margin: 30px auto;
   padding: 20px;

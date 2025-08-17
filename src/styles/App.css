@@ -1,3 +1,10 @@
+body {
+    background: linear-gradient(to right, #111111, #1c1c1c);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .navbar { 
     display: flex;
     gap: 10px;

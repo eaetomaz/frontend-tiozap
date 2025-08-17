@@ -59,7 +59,7 @@ export default function Configuracoes() {
   }
 
   return (
-    <div>
+    <div className="div-configuracoes">
       <h1>Configurações</h1>
       <form onSubmit={handleSubmit}>
         <label>

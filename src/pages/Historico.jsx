@@ -12,7 +12,7 @@ export default function Historico() {
   }, []);
 
   return (
-    <div>
+    <div className="div-historico">
       <h1>Histórico</h1>      
       <table border="1">
         <thead>
