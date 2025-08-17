@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate, Link } from "react-ro
 import Login from "./pages/Login";
 import Historico from "./pages/Historico";
 import Configuracoes from "./pages/Configuracoes";
+import Dashboard from "./pages/Dashboard";
 import "./styles/App.css";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 // import ProtectedRoute from "./components/ProtectedRoute"; // desativado por enquanto
@@ -11,6 +12,9 @@ export default function App() {
     <Router>      
       <div className="body">
       '  <nav className="navbar">
+          <Link to="/dashboard" className="navbar-link">
+            <i className="fa fa-dashboard"/> Dashboard
+          </Link>  
           <Link to="/historico" className="navbar-link">
             <i className="fa fa-history"/> Histórico
           </Link>  
@@ -25,6 +29,7 @@ export default function App() {
           
           <Route path="/historico" element={<Historico />} />
           <Route path="/configuracoes" element={<Configuracoes />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </div>
     </Router>
