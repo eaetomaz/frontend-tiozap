@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { QRCodeSVG } from "qrcode.react";
+import "../styles/Dashboard.css";
 
 export default function Dashboard() {
   const [qrCode, setQrCode] = useState(null);
@@ -12,8 +12,6 @@ export default function Dashboard() {
       const response = await fetch("http://localhost:3001/api/connect");
       const data = await response.json();
 
-    //   console.log(data);
-
       setQrCode(data.qr);
       setChecking(true);
       setShowModal(true);
@@ -21,8 +19,27 @@ export default function Dashboard() {
       console.error("Erro ao conectar:", err);
     }
   };
+  
+  useEffect(() => {
+    const checkInitialStatus = async () => {
+      try {
+        const response = await fetch("http://localhost:3001/api/status");
+        const data = await response.json();
 
-   useEffect(() => {
+        if (data.status === "connected") {
+          setConnected(true);
+        } else {
+          setConnected(false);
+        }
+      } catch (err) {
+        console.error("Erro ao verificar status inicial:", err);
+      }
+    };
+
+    checkInitialStatus();
+  }, []);
+
+  useEffect(() => {
     let intervalId;
 
     if (checking) {
@@ -49,14 +66,19 @@ export default function Dashboard() {
   }, [checking]);
 
   return (
-    <div>
+    <div className="div-principal">
       <h1>Dashboard</h1>
-      <div>
-        <button onClick={connectWhatsApp} disabled={connected}>
+      <div class="fancy-box">
+        <span class="text">Welcome</span>
+        <span class="cursor"></span>
+        <span class="text faded">to TioZap</span>
+      </div>
+      <div className="div-one">
+        <button onClick={connectWhatsApp} disabled={connected} className="whatsapp-btn">
           {connected ? "WhatsApp conectado ✅" : "Conectar WhatsApp"}
         </button>
       </div>
-      
+
       {showModal && (
         <div
           style={{

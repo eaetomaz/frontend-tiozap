@@ -1,0 +1,62 @@
+.div-principal {    
+    width: 600px;
+}
+
+.fancy-box {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 14px 24px;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 50px;
+  color: #fff;
+  overflow: hidden;
+}
+
+.text {
+  color: #fff;
+}
+
+.text.faded {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.cursor {
+  width: 2px;
+  height: 45px;
+  background: #fff;
+  margin: 0 4px;
+  position: relative;
+  box-shadow: 0 0 15px 6px rgba(255, 160, 122, 0.6);
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.div-one {    
+    height: 200px;
+}
+
+.whatsapp-btn {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 12px 24px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;    
+    height: 100%;
+    width: 25%;
+}
+
+.whatsapp-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.05);
+}
