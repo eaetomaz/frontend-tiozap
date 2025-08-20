@@ -73,46 +73,69 @@ export default function Dashboard() {
         <span class="cursor"></span>
         <span class="text faded">to TioZap</span>
       </div>
-      <div className="div-one">
-        <button onClick={connectWhatsApp} disabled={connected} className="whatsapp-btn">
-          {connected ? "WhatsApp conectado ✅" : "Conectar WhatsApp"}
-        </button>
-      </div>
 
-      {showModal && (
-        <div
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            background: "rgba(0,0,0,0.5)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
+      <div className="div-options">
+        <div className="div-one">
+          <button onClick={connectWhatsApp} disabled={connected} className="whatsapp-btn">
+            {connected ? "WhatsApp conectado ✅" : "Conectar WhatsApp"}
+          </button>
+        </div>
+
+        {showModal && (
           <div
             style={{
-              background: "white",
-              padding: "20px",
-              borderRadius: "8px",
-              textAlign: "center",
+              position: "fixed",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              background: "rgba(0,0,0,0.5)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            <h2>Escaneie o QR Code:</h2>
-            <img src={qrCode} alt="QR Code" style={{ width: 256, height: 256 }} />
-            <br />
-            <button
-              style={{ marginTop: "15px" }}
-              onClick={() => setShowModal(false)}
+            <div
+              style={{
+                background: "white",
+                padding: "20px",
+                borderRadius: "8px",
+                textAlign: "center",
+              }}
             >
-              Fechar
-            </button>
-          </div>
+              <h2>Escaneie o QR Code:</h2>
+              <img src={qrCode} alt="QR Code" style={{ width: 256, height: 256 }} />
+              <br />
+              <button
+                style={{ marginTop: "15px" }}
+                onClick={() => setShowModal(false)}
+              >
+                Fechar
+              </button>
+            </div>
+          </div>        
+        )}
+
+        <div className="div-one">
+          <button className="btn-options">
+            5
+            <p>Mensagens enviadas</p>
+          </button>
         </div>
-      )}
+        <div className="div-one">
+          <button className="btn-options">
+            2min
+            <p>Tempo médio de resposta</p>
+          </button>
+        </div>
+        <div className="div-one">
+          <button className="btn-options">
+            5
+            <p>Bate-papo(s) em aberto</p>
+          </button>
+        </div>
+      </div>
+
     </div>
   );
 }
