@@ -48,7 +48,7 @@ export default function Dashboard() {
           const response = await fetch("http://localhost:3001/api/status");
           const data = await response.json();
 
-          console.log("Status atual:", data);
+          // console.log("Status atual:", data);
 
           if (data.status === "connected") {
             setConnected(true);
@@ -68,10 +68,10 @@ export default function Dashboard() {
   return (
     <div className="div-principal">
       <h1>Dashboard</h1>
-      <div class="fancy-box">
-        <span class="text">Welcome</span>
-        <span class="cursor"></span>
-        <span class="text faded">to TioZap</span>
+      <div className="fancy-box">
+        <span className="text">Welcome</span>
+        <span className="cursor"></span>
+        <span className="text faded">to TioZap</span>
       </div>
 
       <div className="div-options">
@@ -79,42 +79,7 @@ export default function Dashboard() {
           <button onClick={connectWhatsApp} disabled={connected} className="whatsapp-btn">
             {connected ? "WhatsApp conectado ✅" : "Conectar WhatsApp"}
           </button>
-        </div>
-
-        {showModal && (
-          <div
-            style={{
-              position: "fixed",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              background: "rgba(0,0,0,0.5)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <div
-              style={{
-                background: "white",
-                padding: "20px",
-                borderRadius: "8px",
-                textAlign: "center",
-              }}
-            >
-              <h2>Escaneie o QR Code:</h2>
-              <img src={qrCode} alt="QR Code" style={{ width: 256, height: 256 }} />
-              <br />
-              <button
-                style={{ marginTop: "15px" }}
-                onClick={() => setShowModal(false)}
-              >
-                Fechar
-              </button>
-            </div>
-          </div>        
-        )}
+      </div>    
 
         <div className="div-one">
           <button className="btn-options">
@@ -135,6 +100,29 @@ export default function Dashboard() {
           </button>
         </div>
       </div>
+
+      {showModal && (
+          <div className="div-modal-connection">
+            <div
+              style={{
+                background: "white",
+                padding: "20px",
+                borderRadius: "8px",
+                textAlign: "center",
+              }}
+            >
+              <h2>Escaneie o QR Code:</h2>
+              <img src={qrCode} alt="QR Code" style={{ width: 256, height: 256 }} />
+              <br />
+              <button
+                style={{ marginTop: "15px" }}
+                onClick={() => setShowModal(false)}
+              >
+                Fechar
+              </button>
+            </div>
+          </div>        
+        )}
 
     </div>
   );
