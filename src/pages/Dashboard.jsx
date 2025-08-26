@@ -6,6 +6,9 @@ export default function Dashboard() {
   const [connected, setConnected] = useState(false);
   const [checking, setChecking] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [messagesSend, setMessagesSend] = useState(0);
+  const [averageMessages, setAverageMessages] = useState(1);
+  const [messagesReceived, setMessagesReceived] = useState(0);
 
   const connectWhatsApp = async () => {
     try {
@@ -19,6 +22,23 @@ export default function Dashboard() {
       console.error("Erro ao conectar:", err);
     }
   };
+
+const loadData = async () => {
+  try {
+    const response = await fetch("http://localhost:3001/summary");
+    const data = await response.json();
+
+    if(response.ok)
+    {
+      setMessagesSend(data.respostas);
+      setAverageMessages(data.mediaResposta);
+      setMessagesReceived(data.recebidos);
+    }
+
+  } catch (err) {
+    console.error("Erro ao carregar dados:", err);
+  }
+}
   
   useEffect(() => {
     const checkInitialStatus = async () => {
@@ -56,6 +76,9 @@ export default function Dashboard() {
             setShowModal(false);
             clearInterval(intervalId);
           }
+
+          loadData();
+
         } catch (err) {
           console.error("Erro ao verificar status:", err);
         }
@@ -83,20 +106,20 @@ export default function Dashboard() {
 
         <div className="div-one">
           <button className="btn-options">
-            5
+            {messagesSend}
             <p>Mensagens enviadas</p>
           </button>
         </div>
         <div className="div-one">
           <button className="btn-options">
-            2min
+            {averageMessages.toFixed(1)}%
             <p>Tempo médio de resposta</p>
           </button>
         </div>
         <div className="div-one">
           <button className="btn-options">
-            5
-            <p>Bate-papo(s) em aberto</p>
+            {messagesReceived}
+            <p>Mensagem(ns) recebida(s)</p>
           </button>
         </div>
       </div>
